@@ -1,7 +1,7 @@
 var jsonfile = require('jsonfile');
 var util = require('util');
 
-var file = 'src\\project.json';
+var file = 'src\\Loggly.Extensions.Logging\\project.json';
 var buildNumber = process.env.APPVEYOR_BUILD_VERSION;
 
 jsonfile.readFile(file,
