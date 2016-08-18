@@ -3,9 +3,10 @@
   "title": "Loggly.Extensions.Logging",
   "description": "Loggly provider for Microsoft.Extensions.Logging",
   "authors": [ "wjdavis5" ],
-  "projectUrl": "https://github.com/wjdavis5/Loggly.Extensions.Logging",
+
   "packOptions": {
-    "tags": [ "Loggly" ]
+    "tags": [ "Loggly" ],
+    "projectUrl": "https://github.com/wjdavis5/Loggly.Extensions.Logging"
 
   },
 
