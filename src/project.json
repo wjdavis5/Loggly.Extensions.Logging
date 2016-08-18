@@ -3,9 +3,12 @@
   "title": "Loggly.Extensions.Logging",
   "description": "Loggly provider for Microsoft.Extensions.Logging",
   "authors": [ "wjdavis5" ],
+  "projectUrl": "https://github.com/wjdavis5/Loggly.Extensions.Logging",
   "packOptions": {
     "tags": [ "Loggly" ]
+
   },
+
   "dependencies": {
     "Microsoft.Extensions.Configuration": "1.0.0",
     "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",
@@ -29,7 +32,7 @@
         "System.Text.RegularExpressions": "4.1.0",
         "System.Net.Http": "4.1.0"
       }
-      
+
     }
   }
 }
