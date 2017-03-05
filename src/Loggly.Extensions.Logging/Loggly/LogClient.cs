@@ -5,6 +5,7 @@ using System.Net;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Loggly
 {
@@ -14,30 +15,25 @@ namespace Loggly
     public class LogClient
     {
         public BlockingCollection<Event> LogMessages { get; set; }
-
-        private Thread LoggingThread { get; set; }
+        
         private IHttpClient HttpClient { get; set; }
 
         public LogClient(string apiKey)
         {
             LogMessages= new BlockingCollection<Event>();
             ApiKey = apiKey;
-            LoggingThread = new Thread(ProcessMessages);
             HttpClient = new HttpClient();
-            LoggingThread.Start();
+            Task.Factory.StartNew(ProcessMessages);
         }
 
         private void ProcessMessages()
         {
             while (!Environment.HasShutdownStarted)
             {
-                while (LogMessages.Any())
-                {
-                    Event msg;
-                    LogMessages.TryTake(out msg, 1000);
-                    if (msg == null) continue;
-                    SendEvent(msg);
-                }
+                Event msg;
+                LogMessages.TryTake(out msg, 1000);
+                if (msg == null) continue;
+                SendEvent(msg);
             }
         }
 
